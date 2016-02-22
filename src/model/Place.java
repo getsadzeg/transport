@@ -2,12 +2,12 @@
 package transport.src.model;
 import  transport.src.enums.*;
 
-public class Bringplace {
+public class Place {
     private Address address;
-    public Bringplace() {
+    public Place() {
         
     }
-    public Bringplace(Address address) {
+    public Place(Address address) {
         this.address = address;
     }
 }
