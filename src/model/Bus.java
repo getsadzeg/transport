@@ -1,21 +1,27 @@
 package transport.src.model;
-
+import transport.src.exceptions.*;
 
 public class Bus {
+    private static final short MAX = 150;
     private short capacity;
     private short number;
     private double price;
-    private Bringplace bring;
-    private Destination destination;
+    private Place bring;
+    private Place destination;
 
     public Bus() {
 
     }
 
-    public Bus(short number) {
+    public Bus(short number) throws IllegalNumberException {
+        if(number > MAX) throw new IllegalNumberException("Number must be less than 150");
         this.number = number;
     }
-    
+    public Bus(Place bring, Place destination) {
+        
+        this.bring = bring;
+        this.destination = destination;
+    }
 
     public short getCapacity() {
         return capacity;
