@@ -1,19 +1,21 @@
+package transport.src.model;
+
 
 public class Bus {
     private short capacity;
     private short number;
     private double price;
-
+    private Bringplace bring;
+    private Destination destination;
 
     public Bus() {
 
     }
 
-    public Bus(short capacity, short number, double price) {
-        this.capacity = capacity;
+    public Bus(short number) {
         this.number = number;
-        this.price = price;
     }
+    
 
     public short getCapacity() {
         return capacity;
