@@ -4,6 +4,7 @@ import transport.src.enums.MetroStopping;
 
 public class Metro {
     private MetroStopping stopping;
+    private double enterprice;
     public Metro() {
         
     }
@@ -17,6 +18,14 @@ public class Metro {
 
     public void setStopping(MetroStopping stopping) {
         this.stopping = stopping;
+    }
+
+    public double getEnterprice() {
+        return enterprice;
+    }
+
+    public void setEnterprice(double enterprice) {
+        this.enterprice = enterprice;
     }
     
 }
