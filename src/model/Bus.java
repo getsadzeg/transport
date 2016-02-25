@@ -3,7 +3,7 @@ import transport.src.exceptions.*;
 
 public class Bus {
     private static final short MAX = 150;
-    private short capacity;
+    private final short capacity = 30;
     private short number;
     private double price;
     private Place bring;
@@ -25,10 +25,6 @@ public class Bus {
 
     public short getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(short capacity) {
-        this.capacity = capacity;
     }
 
     public short getNumber() {

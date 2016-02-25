@@ -4,7 +4,7 @@ package transport.src.model;
 
 public class MetroTrain {
     private Metro station;
-    private short capacity;
+    private final short capacity = 50;
     public MetroTrain() {
         
     }
@@ -22,10 +22,6 @@ public class MetroTrain {
 
     public short getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(short capacity) {
-        this.capacity = capacity;
     }
     
 }
