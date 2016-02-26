@@ -1,10 +1,11 @@
 
 package transport.src.model;
 import transport.src.enums.MetroStopping;
+import transport.src.enums.Status;
 
-public class Metro {
+public class Metro extends Transport {
     private MetroStopping stopping;
-    private double enterprice;
+    public final double price = 0.5;
     public Metro() {
         
     }
@@ -19,13 +20,17 @@ public class Metro {
     public void setStopping(MetroStopping stopping) {
         this.stopping = stopping;
     }
-
-    public double getEnterprice() {
-        return enterprice;
-    }
-
-    public void setEnterprice(double enterprice) {
-        this.enterprice = enterprice;
-    }
     
+    @Override
+    public void enter(Card card) {
+        if(card.getStatus() == Status.STUDENT) {
+            card.setCash(card.getCash() - price + 0.3);
+        }
+        else if(card.getStatus() == Status.DEFAULT){
+            card.setCash(card.getCash() - price);
+        }
+        else if(card.getStatus() == Status.PENSIONER) {
+            card.setCash(card.getCash() - price + 0.2);
+        }
+    }
 }

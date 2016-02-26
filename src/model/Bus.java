@@ -1,11 +1,12 @@
 package transport.src.model;
 import transport.src.exceptions.*;
+import transport.src.enums.*;
 
-public class Bus {
+public class Bus extends Transport {
     private static final short MAX = 150;
     private final short capacity = 30;
     private short number;
-    private double price;
+    public final double price = 0.5;
     private Place bring;
     private Place destination;
 
@@ -35,11 +36,18 @@ public class Bus {
         this.number = number;
     }
 
-    public double getPrice() {
-        return price;
-    }
+   
 
-    public void setPrice(double price) {
-        this.price = price;
+    @Override
+    public void enter(Card card) {
+        if(card.getStatus() == Status.STUDENT) {
+            card.setCash(card.getCash() - price + 0.3);
+        }
+        else if(card.getStatus() == Status.DEFAULT){
+            card.setCash(card.getCash() - price);
+        }
+        else if(card.getStatus() == Status.PENSIONER) {
+            card.setCash(card.getCash() - price + 0.2);
+        }
     }
 }
