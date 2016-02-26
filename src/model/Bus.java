@@ -7,8 +7,7 @@ public class Bus extends Transport {
     private final short capacity = 30;
     private short number;
     public final double price = 0.5;
-    private Place bring;
-    private Place destination;
+    private Place route;
 
     public Bus() {
 
@@ -18,10 +17,8 @@ public class Bus extends Transport {
         if(number > MAX) throw new IllegalNumberException("Number must be less than 150");
         this.number = number;
     }
-    public Bus(Place bring, Place destination) {
-        
-        this.bring = bring;
-        this.destination = destination;
+    public Bus(Place route) {
+        this.route = route;
     }
 
     public short getCapacity() {
