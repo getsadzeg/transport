@@ -4,7 +4,7 @@ package transport.src.model;
 
 public class MetroTrain {
     private Metro station;
-    private final short capacity = 50;
+    public final short capacity = 50;
     public MetroTrain() {
         
     }
