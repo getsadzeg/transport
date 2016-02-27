@@ -5,7 +5,7 @@ import transport.src.enums.Status;
 
 public class Metro extends Transport {
     private MetroStopping stopping;
-    public final double price = 0.5;
+    public double price = 0.5;
     public Metro() {
         
     }

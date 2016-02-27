@@ -6,7 +6,7 @@ public class Bus extends Transport {
     private static final short MAX = 150;
     private final short capacity = 30;
     private short number;
-    public final double price = 0.5;
+    public double price = 0.5;
     private Place route;
 
     public Bus() {

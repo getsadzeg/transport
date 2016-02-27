@@ -1,6 +1,5 @@
 
 package transport.src.model;
-import transport.src.model.*;
 import transport.src.exceptions.*;
 
 public abstract class Transport {

@@ -5,7 +5,6 @@ import transport.src.exceptions.*;
 
 
 public class Minibus extends Bus {
-    public final double price = 0.8; 
     public Minibus() {
         
     }
@@ -17,6 +16,7 @@ public class Minibus extends Bus {
     }
     @Override
     public void enter(Card card) {
+        price = 0.8;
         card.setCash(card.getCash() - price);
     }
 }
