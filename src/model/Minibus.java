@@ -11,7 +11,7 @@ public class Minibus extends Bus {
     public Minibus(short number) throws IllegalNumberException {
         super(number);
     }
-    public Minibus(Place route) {
+    public Minibus(Route route) {
         super(route);
     }
     @Override

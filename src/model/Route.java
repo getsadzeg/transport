@@ -2,14 +2,14 @@
 package transport.src.model;
 import  transport.src.enums.*;
 
-public class Place {
+public class Route {
     private Address bringplace;
     private Address destination;
-    public Place() {
+    public Route() {
         
     }
 
-    public Place(Address bringplace, Address destination) {
+    public Route(Address bringplace, Address destination) {
         this.bringplace = bringplace;
         this.destination = destination;
     }
