@@ -32,6 +32,7 @@ public class Card {
         this.cash = cash;
     }
     public void fill(double cash) {
-        setCash(cash);
+        if(getCash() == 0) setCash(cash);
+        else setCash(this.cash + cash);
     }
 }
