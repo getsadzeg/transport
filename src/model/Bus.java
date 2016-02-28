@@ -51,4 +51,12 @@ public class Bus extends Transport {
             card.setCash(card.getCash() - price + 0.2);
         }
     }
+    @Override
+    public String toString() {
+        String str = "";
+        str += "Max numbering of buses is " + MAX + System.lineSeparator();
+        str += "Price of our service is " + price + "gel" + "for students and pensioners - " +  (price-0.3) + "for pupils it's free" + System.lineSeparator();
+        str+= "Routes:" + System.lineSeparator(); //not yet
+        return str;
+    }
 }
