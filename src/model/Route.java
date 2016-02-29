@@ -29,5 +29,8 @@ public class Route {
     public void setDestination(Address destination) {
         this.destination = destination;
     }
-    
+    @Override
+    public String toString() {
+        return origin + " " + destination;
+    }
 }
