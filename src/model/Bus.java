@@ -41,16 +41,19 @@ public class Bus extends Transport {
     @Override
     public void enter(Card card) throws InsufficientCashException {
         if(card.getStatus() == Status.STUDENT) {
-            if(card.getCash() < (price - 0.3)) throw new InsufficientCashException("There's Insufficient cash on your card");
+            if(card.getCash() < (price - 0.3)) throw new InsufficientCashException("There's Insufficient + " + 
+                    ((price - 0.3) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price + 0.3);
             
         }
         else if(card.getStatus() == Status.DEFAULT){
-            if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient cash on your card");
+            if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient + " + 
+                    ((price) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price);
         }
         else if(card.getStatus() == Status.PENSIONER) {
-            if(card.getCash() < (price - 0.2)) throw new InsufficientCashException("There's Insufficient cash on your card");
+            if(card.getCash() < (price - 0.2)) throw new InsufficientCashException("There's Insufficient + " + 
+                    ((price - 0.2) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price + 0.2);
         }
     }
