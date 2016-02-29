@@ -20,8 +20,11 @@ public class Minibus extends Bus {
         return price;
     }
     @Override
-    public void enter(Card card) {
+    public void enter(Card card) throws InsufficientCashException {
+        if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient + " + 
+                    (price - card.getCash()) +  " on your card");
         card.setCash(card.getCash() - getPrice());
+        System.out.println("Your remaining cash is " + card.getCash());
     }
     @Override
     public String toString() {
