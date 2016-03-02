@@ -10,9 +10,9 @@ public class Runner {
     public static void main(String[] args) {
         Bus bus;
         try {
-            bus = new Bus((short)38);
+            bus = new Bus((short)127);
             try {
-                bus.readRoutes();
+                System.out.println(bus.readRoutes());
             } catch (IOException ex) {
                 Logger.getLogger(Runner.class.getName()).log(Level.SEVERE, null, ex);
             }

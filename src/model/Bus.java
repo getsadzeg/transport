@@ -66,15 +66,12 @@ public class Bus extends Transport {
         ArrayList <Route> routes = new ArrayList<Route>();
         BufferedReader in = null;
         try {
-           in = new BufferedReader(new FileReader("src/transport/routes"));
+           in = new BufferedReader(new FileReader("src/transport/" + this.number));
            String read = null;
            while ((read = in.readLine()) != null) {
            String[] splited = read.split("\\s+");
-           for(int i=0; i<splited.length; i++) {
-               for(int j=1; j<splited.length; j++) {
-               if(i % 3 == 0 || i == 0) num = Integer.parseInt(splited[i]);
-               else routes.add(new Route(Address.valueOf(splited[i]), Address.valueOf(splited[j])));
-           }
+           for(int i=1; i<splited.length; i++) {
+               routes.add(new Route(Address.valueOf(splited[i-1]), Address.valueOf(splited[i])));
            }
            map.put(num, routes);
     }
@@ -85,14 +82,14 @@ public class Bus extends Transport {
      }
         return map;
     }
-    public String getRoutes() throws IOException {
+    /*public String getRoutes() throws IOException {
         Iterator it = map.keySet().iterator();
         String str = "";
         while(it.hasNext()) {
                 Integer key = (Integer)it.next();
                 ArrayList<Route> routes = (ArrayList<Route>) map.get(key);
         }
-    }
+    }*/
     @Override
     public String toString() {
         String str = "";
