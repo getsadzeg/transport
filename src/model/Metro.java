@@ -37,7 +37,6 @@ public class Metro extends Transport {
     public String toString() {
         String str = "";
         str += "Price of our service is " + price + "gel" + "for students and pensioners - " +  (price-0.3) + "for pupils it's free" + System.lineSeparator();
-        str+= "Routes:" + System.lineSeparator(); //not yet
         return str;
     }
 }

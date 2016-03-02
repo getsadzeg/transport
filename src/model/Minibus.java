@@ -21,7 +21,7 @@ public class Minibus extends Bus {
     }
     @Override
     public void enter(Card card) throws InsufficientCashException {
-        if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient + " + 
+        if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient " + 
                     (price - card.getCash()) +  " on your card");
         card.setCash(card.getCash() - getPrice());
         System.out.println("Your remaining cash is " + card.getCash());
@@ -31,7 +31,6 @@ public class Minibus extends Bus {
         String str = "";
        // str += "Max numbering of buses is " + MAX + System.lineSeparator();
         str += "Price of our service is " + getPrice() + "gel" + System.lineSeparator();
-        str+= "Routes:" + System.lineSeparator(); //not yet
         return str;
     }
 }

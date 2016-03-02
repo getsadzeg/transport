@@ -9,8 +9,8 @@ public class Route {
         
     }
 
-    public Route(Address bringplace, Address destination) {
-        this.origin = bringplace;
+    public Route(Address origin, Address destination) {
+        this.origin = origin;
         this.destination = destination;
     }
 

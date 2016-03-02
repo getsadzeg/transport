@@ -3,12 +3,11 @@ package transport.src.model;
 import transport.src.enums.*;
 import transport.src.exceptions.*;
 import java.util.*;
-//import static transport.src.enums.Status.PUPIL;
 
 public class Card {
     private Status status;
     private double cash;
-   // private HashMap type = new HashMap<PStatus, String>();
+    
     public Card() {
         
     }

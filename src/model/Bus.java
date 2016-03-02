@@ -41,19 +41,19 @@ public class Bus extends Transport {
     @Override
     public void enter(Card card) throws InsufficientCashException {
         if(card.getStatus() == Status.STUDENT) {
-            if(card.getCash() < (price - 0.3)) throw new InsufficientCashException("There's Insufficient + " + 
+            if(card.getCash() < (price - 0.3)) throw new InsufficientCashException("There's Insufficient " + 
                     ((price - 0.3) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price + 0.3); 
             System.out.println("Your remaining cash is " + card.getCash());
         }
         else if(card.getStatus() == Status.DEFAULT){
-            if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient + " + 
+            if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient " + 
                     ((price) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price);
             System.out.println("Your remaining cash is " + card.getCash());
         }
         else if(card.getStatus() == Status.PENSIONER) {
-            if(card.getCash() < (price - 0.2)) throw new InsufficientCashException("There's Insufficient + " + 
+            if(card.getCash() < (price - 0.2)) throw new InsufficientCashException("There's Insufficient " + 
                     ((price - 0.2) - card.getCash()) +  " on your card");
             card.setCash(card.getCash() - price + 0.2);
             System.out.println("Your remaining cash is " + card.getCash());
@@ -77,25 +77,15 @@ public class Bus extends Transport {
     }
 }
     catch (IOException e) {
-        System.out.println("There was a problem: " + e);
         e.printStackTrace();
      }
         return map;
     }
-    /*public String getRoutes() throws IOException {
-        Iterator it = map.keySet().iterator();
-        String str = "";
-        while(it.hasNext()) {
-                Integer key = (Integer)it.next();
-                ArrayList<Route> routes = (ArrayList<Route>) map.get(key);
-        }
-    }*/
     @Override
     public String toString() {
         String str = "";
         str += "Max numbering of buses is " + MAX + System.lineSeparator();
         str += "Price of our service is " + price + "gel" + "for students and pensioners - " +  (price-0.3) + "for pupils it's free" + System.lineSeparator();
-        str+= "Routes:" + System.lineSeparator(); //not yet
         return str;
     }
 }
