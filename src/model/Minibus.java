@@ -5,7 +5,8 @@ import transport.src.exceptions.*;
 
 
 public class Minibus extends Bus {
-    private final double price = 0.8;
+    private double price = 0.8;
+    private boolean isEntered = false;
     public Minibus() {
         
     }
@@ -16,11 +17,19 @@ public class Minibus extends Bus {
         super(route);
         
     }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
     public double getPrice() {
         return price;
     }
     @Override
     public void enter(Card card) throws InsufficientCashException {
+        if(isEntered) {
+            setPrice(0.65);
+        }
+        else isEntered = true;
         if(card.getCash() < price) throw new InsufficientCashException("There's Insufficient " + 
                     (price - card.getCash()) +  " on your card");
         card.setCash(card.getCash() - getPrice());

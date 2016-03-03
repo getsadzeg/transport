@@ -5,6 +5,7 @@ import transport.src.enums.Status;
 
 public class Metro extends Transport {
     private MetroStopping stopping;
+    private boolean isEntered = false;
     public double price = 0.5;
     public Metro() {
         
@@ -23,6 +24,10 @@ public class Metro extends Transport {
     
     @Override
     public void enter(Card card) {
+        if(isEntered) {
+            price = 0.4;
+        }
+        else isEntered = true;
         if(card.getStatus() == Status.STUDENT) {
             card.setCash(card.getCash() - price + 0.3);
         }

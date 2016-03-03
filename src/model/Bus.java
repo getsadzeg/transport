@@ -7,6 +7,7 @@ import java.util.*;
 public class Bus extends Transport {
     private static final short MAX = 150;
     private final short capacity = 30;
+    private boolean isEntered = false;
     private short number;
     public double price = 0.5;
     private Route route;
@@ -40,6 +41,10 @@ public class Bus extends Transport {
 
     @Override
     public void enter(Card card) throws InsufficientCashException {
+        if(isEntered) {
+            price = 0.4;
+        }
+        else isEntered = true;
         if(card.getStatus() == Status.STUDENT) {
             if(card.getCash() < (price - 0.3)) throw new InsufficientCashException("There's Insufficient " + 
                     ((price - 0.3) - card.getCash()) +  " on your card");
