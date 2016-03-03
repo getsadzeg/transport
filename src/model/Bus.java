@@ -9,7 +9,7 @@ public class Bus extends Transport {
     private final short capacity = 30;
     private boolean isEntered = false;
     private short number;
-    public double price = 0.5;
+    public static double price = 0.5;
     private Route route;
     private HashMap map = new HashMap<Integer, ArrayList<Route>>();
     
