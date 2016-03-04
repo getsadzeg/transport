@@ -6,5 +6,5 @@ import java.util.HashMap;
 
 public abstract class Transport {
     public abstract void enter(Card card) throws InsufficientCashException;
-    public abstract HashMap readRoutes() throws IOException;
+    public abstract Object readRoutes() throws IOException;
 }
