@@ -86,7 +86,7 @@ public class Bus extends Transport {
     }
 }
     catch (IOException e) {
-        e.printStackTrace();
+        System.out.println(e.getMessage());
      }
         return map;
     }
@@ -94,9 +94,9 @@ public class Bus extends Transport {
         File folder = new File("src/transport/routefolder/");
         File[] listOfFiles = folder.listFiles();
         ArrayList <Route> routes = new ArrayList<Route>();
-        BufferedReader in = null;
         boolean isOrigin = false;
-           boolean isDestination = false;
+        boolean isDestination = false;
+        BufferedReader in = null;
         for(File file : listOfFiles) {
             try {
            in = new BufferedReader(new FileReader(file));
@@ -114,10 +114,10 @@ public class Bus extends Transport {
     }
 }
     catch (IOException e) {
-        e.printStackTrace();
+        System.out.println(e.getMessage());
      }
         }
-        return "not found";
+        return "bus not found by that route";
     }
     @Override
     public String toString() {
