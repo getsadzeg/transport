@@ -11,10 +11,12 @@ import transport.src.exceptions.InsufficientCashException;
 public class Runner {
     public static void main(String[] args) {
         Bus bus;
+        Bus secondbus;
         Minibus minibus;
         Metro metro;
         try {
             bus = new Bus((short)127);
+            secondbus = new Bus(new Route(Address.Freedom_Square, Address.Samtredia_St));
             minibus = new Minibus((short)147);
             metro = new Metro(MetroStopping.Delisi_Metro);
             Card card = new Card(Status.DEFAULT);
@@ -27,6 +29,7 @@ public class Runner {
             }
             try {
                 System.out.println(bus.readRoutes());
+                System.out.println(secondbus.getByRoute());
                 System.out.println(minibus.readRoutes());
                 System.out.println(metro.readRoutes());
             } catch (IOException ex) {

@@ -71,12 +71,11 @@ public class Bus extends Transport {
     }
     @Override
     public HashMap readRoutes() throws IOException {
-        //File file = new File("src/transport/routes");
         int num = 0;
         ArrayList <Route> routes = new ArrayList<Route>();
         BufferedReader in = null;
         try {
-           in = new BufferedReader(new FileReader("src/transport/" + this.number));
+           in = new BufferedReader(new FileReader("src/transport/routefolder/" + this.number));
            String read = null;
            while ((read = in.readLine()) != null) {
            String[] splited = read.split("\\s+");
@@ -90,6 +89,35 @@ public class Bus extends Transport {
         e.printStackTrace();
      }
         return map;
+    }
+    public String getByRoute() {
+        File folder = new File("src/transport/routefolder/");
+        File[] listOfFiles = folder.listFiles();
+        ArrayList <Route> routes = new ArrayList<Route>();
+        BufferedReader in = null;
+        boolean isOrigin = false;
+           boolean isDestination = false;
+        for(File file : listOfFiles) {
+            try {
+           in = new BufferedReader(new FileReader(file));
+           String read = null;
+           while ((read = in.readLine()) != null) {
+           String[] splited = read.split("\\s+");
+           
+           String origin = String.valueOf(route.getOrigin());
+           String destination = String.valueOf(route.getDestination());
+           for(int i=0; i<splited.length; i++) {
+               if(splited[i].equals(origin)) isOrigin = true;
+               if(splited[i].equals(destination)) isDestination = true;
+           }
+           if(isOrigin && isDestination) return file.getName();
+    }
+}
+    catch (IOException e) {
+        e.printStackTrace();
+     }
+        }
+        return "not found";
     }
     @Override
     public String toString() {
