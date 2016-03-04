@@ -1,5 +1,12 @@
 
 package transport.src.model;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import transport.src.enums.Address;
 import transport.src.enums.MetroStopping;
 import transport.src.enums.Status;
 import transport.src.exceptions.InsufficientCashException;
@@ -47,6 +54,11 @@ public class Metro extends Transport {
             card.setCash(card.getCash() - price + 0.2);
             System.out.println("Your remaining cash is " + card.getCash());
         }
+    }
+    @Override
+    public List readRoutes() throws IOException {
+        List<MetroStopping> stoppings = Arrays.asList(MetroStopping.values());
+        return stoppings;
     }
     @Override
     public String toString() {
