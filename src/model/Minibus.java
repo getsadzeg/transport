@@ -2,7 +2,8 @@
 package transport.src.model;
 
 import transport.src.exceptions.*;
-
+import java.util.HashMap;
+import java.io.IOException;
 
 public class Minibus extends Bus {
     private double price = 0.8;
@@ -34,6 +35,10 @@ public class Minibus extends Bus {
                     (price - card.getCash()) +  " on your card");
         card.setCash(card.getCash() - getPrice());
         System.out.println("Your remaining cash is " + card.getCash());
+    }
+    @Override
+    public HashMap readRoutes() throws IOException {
+        return super.readRoutes();
     }
     @Override
     public String toString() {
