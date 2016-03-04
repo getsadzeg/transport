@@ -12,9 +12,11 @@ public class Runner {
     public static void main(String[] args) {
         Bus bus;
         Minibus minibus;
+        Metro metro;
         try {
             bus = new Bus((short)127);
             minibus = new Minibus((short)147);
+            metro = new Metro(MetroStopping.Delisi_Metro);
             Card card = new Card(Status.DEFAULT);
             card.fill(15);
             try {
@@ -26,6 +28,7 @@ public class Runner {
             try {
                 System.out.println(bus.readRoutes());
                 System.out.println(minibus.readRoutes());
+                System.out.println(metro.readRoutes());
             } catch (IOException ex) {
                 Logger.getLogger(Runner.class.getName()).log(Level.SEVERE, null, ex);
             }
