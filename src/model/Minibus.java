@@ -7,12 +7,16 @@ import java.io.IOException;
 
 public class Minibus extends Bus {
     private double price = 0.8;
+    private short number;
     private boolean isEntered = false;
+    private static final short MAX = 270;
+            
     public Minibus() {
         
     }
     public Minibus(short number) throws IllegalNumberException {
-        super(number);
+        if(number > MAX) throw new IllegalNumberException("Number must be less than " + MAX);
+        this.number = number;
     }
     public Minibus(Route route) {
         super(route);
@@ -43,7 +47,7 @@ public class Minibus extends Bus {
     @Override
     public String toString() {
         String str = "";
-       // str += "Max numbering of buses is " + MAX + System.lineSeparator();
+        str += "Max numbering of buses is " + MAX + System.lineSeparator();
         str += "Price of our service is " + getPrice() + "gel" + System.lineSeparator();
         return str;
     }
