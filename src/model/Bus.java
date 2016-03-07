@@ -75,7 +75,7 @@ public class Bus extends Transport {
         ArrayList <Route> routes = new ArrayList<Route>();
         BufferedReader in = null;
         try {
-           in = new BufferedReader(new FileReader("src/transport/routefolder/" + this.number));
+           in = new BufferedReader(new FileReader("src/transport/routefolder/" + getNumber()));
            String read = null;
            while ((read = in.readLine()) != null) {
            String[] splited = read.split("\\s+");

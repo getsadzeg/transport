@@ -30,6 +30,15 @@ public class Minibus extends Bus {
         return price;
     }
     @Override
+    public short getNumber() {
+        return number;
+    }
+
+    @Override
+    public void setNumber(short number) {
+        this.number = number;
+    }
+    @Override
     public void enter(Card card) throws InsufficientCashException {
         if(isEntered) {
             setPrice(0.65);
@@ -51,4 +60,6 @@ public class Minibus extends Bus {
         str += "Price of our service is " + getPrice() + "gel" + System.lineSeparator();
         return str;
     }
+
+    
 }
