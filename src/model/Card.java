@@ -3,16 +3,19 @@ package transport.src.model;
 import transport.src.enums.*;
 import transport.src.exceptions.*;
 import java.util.*;
+import static transport.src.model.Bus.price;
 
 public class Card {
     private Status status;
     private double cash;
+    private Date date;
     
     public Card() {
         
     }
     public Card(Status status) {
         this.status = status;
+        date = new Date();
     }
 
     public Status getStatus() {
@@ -32,5 +35,17 @@ public class Card {
     }
     public void fill(double cash) {
         setCash(this.cash + cash);
+    }
+    public boolean isEntered() {
+        boolean isEntered = false;
+        long mills = date.getTime();
+        long anothermills = 0;
+        if(isEntered) {
+            anothermills = mills;
+            mills = date.getTime();
+            if(mills - anothermills == 9000000) price = 0.4;
+        }
+        else isEntered = true;
+        return isEntered;
     }
 }
